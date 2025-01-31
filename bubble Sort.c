@@ -3,13 +3,13 @@
 int main() {
     int a[] = {5,4,2,3,1};
     int size = 5;
-    for (int steps = 0 ; steps < size-1 ; i ++){
+    for (int steps = 0 ; steps < size-1 ; steps++){
         int swapped = 0;
         for(int i = 0 ; i < size - steps - 1 ; i++){
             if(a[i] > a[i+1]){
                 int temp = a[i];
-                a[i+1] = a[i];
-                a[i] = temp;
+                a[i] = a[i+1];
+                a[i+1] = temp;
                 swapped =1 ;
             }
         }
@@ -17,7 +17,7 @@ int main() {
             break;
         }
     }
-    for(int i = 0 ; i < size ; i ++){
+    for(int i = 0 ; i < size ; i++){
         printf("%d ",a[i]);
     }
     
