@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int compare(char* string1, char* string2) {
+    int i = 0;
+    if (string1[i] == '\0' && string2[i] == '\0') {
+        return 0;
+    }
+    
+    while (string1[i] && string2[i]) {
+        if (string1[i] < string2[i]) {
+            return -1; 
+        }
+        if (string1[i] > string2[i]) {
+            return 1; 
+        }
+        i++;
+    }
+}
+int main() {
+    int size = 0;
+    printf("Enter the number of names: ");
+    scanf("%d", &size);
+
+    char names[size][10];
+
+    printf("Enter the names:\n");
+    for (int i = 0; i < size; i++) {
+        scanf("%s", names[i]);  
+    }
+
+    for (int steps = 0; steps < size - 1; steps++) {
+        for (int j = 0; j < size - 1 - steps; j++) {
+            if (compare(names[j], names[j + 1]) > 0) {  
+                char temp[10];
+                strcpy(temp, names[j]);
+                strcpy(names[j], names[j + 1]);
+                strcpy(names[j + 1], temp);
+            }
+        }
+    }
+
+    for (int i = 0; i < size; i++) {
+        printf("%s ", names[i]);
+    }
+
+    return 0;
+}
+
+    
+
